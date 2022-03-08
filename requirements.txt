@@ -3,3 +3,4 @@ django-rest-framework
 psycopg2-binary
 Pillow
 python-decouple
+django-filter
