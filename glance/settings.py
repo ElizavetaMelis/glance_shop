@@ -28,12 +28,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     #modules
+
+    # modules
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
 
-    #custom apps
+
+    # custom apps
     'applications.account',
+    'applications.catalog',
+    'applications.orders',
+    'applications.products',
+    'applications.reviews',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +145,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
+    ]
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
