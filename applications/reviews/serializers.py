@@ -8,7 +8,6 @@ class LikeSerializer(serializers.ModelSerializer):
         model = Like
         fields = '__all__'
 
-
 class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
