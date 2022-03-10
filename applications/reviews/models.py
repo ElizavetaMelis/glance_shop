@@ -8,7 +8,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='review')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='review')
     review = models.TextField()
-    rating = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)])  # диапазон
+    rating = models.IntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(10)])
 
     def __str__(self):
         return self.product.title
