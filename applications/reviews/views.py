@@ -3,6 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+from applications.orders.permissions import IsAuthor
 from applications.reviews.models import Review, Like
 from applications.reviews.permissions import IsReviewAuthor
 from applications.reviews.serializers import ReviewSerializer
@@ -11,7 +12,7 @@ from applications.reviews.serializers import ReviewSerializer
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated, IsAuthor, ]
 
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
